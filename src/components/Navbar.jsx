@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaWallet, FaGamepad, FaBook, FaRobot } from 'react-icons/fa';
+import { FaWallet, FaGamepad, FaBook, FaRobot, FaTrophy, FaCrown } from 'react-icons/fa';
+import CurrencyDisplay from './CurrencyDisplay';
 
 const Navbar = () => {
   return (
@@ -17,11 +18,13 @@ const Navbar = () => {
               </motion.div>
             </Link>
           </div>
-
-          <div className="flex space-x-8">
+          <div className="flex items-center space-x-8">
+            <CurrencyDisplay />
             <NavLink to="/game" icon={<FaGamepad />} text="Game" />
             <NavLink to="/wallet" icon={<FaWallet />} text="Wallet" />
             <NavLink to="/library" icon={<FaBook />} text="Library" />
+            <NavLink to="/nft" icon={<FaCrown />} text="NFTs" />
+            <NavLink to="/leaderboards" icon={<FaTrophy />} text="Leaderboards" />
             <NavLink to="/assistant" icon={<FaRobot />} text="AI Assistant" />
           </div>
         </div>
@@ -31,7 +34,10 @@ const Navbar = () => {
 };
 
 const NavLink = ({ to, icon, text }) => (
-  <Link to={to} className="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary">
+  <Link
+    to={to}
+    className="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary"
+  >
     <motion.div whileHover={{ scale: 1.1 }} className="flex items-center">
       {icon}
       <span className="ml-2">{text}</span>
